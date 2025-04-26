@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { projects } from "../../components/projectsMock";
 import { useTheme } from "../../components/ThemeProvider";
+import { SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiNodedotjs, SiPrisma, SiWeb3Dotjs, SiExpress, SiArduino, SiRedux } from "react-icons/si";
 
 export default function ProjectPage() {
   const params = useParams();
@@ -14,6 +15,24 @@ export default function ProjectPage() {
   if (!project) {
     notFound();
   }
+
+  const getTechIcon = (techName: string) => {
+    const techIcons: Record<string, React.ReactNode> = {
+      "React": <SiReact className="w-6 h-6" />,
+      "Next.js": <SiNextdotjs className="w-6 h-6" />,
+      "TypeScript": <SiTypescript className="w-6 h-6" />,
+      "JavaScript": <SiJavascript className="w-6 h-6" />,
+      "Tailwind": <SiTailwindcss className="w-6 h-6" />,
+      "Node.js": <SiNodedotjs className="w-6 h-6" />,
+      "Prisma": <SiPrisma className="w-6 h-6" />,
+      "Web3.js": <SiWeb3Dotjs className="w-6 h-6" />,
+      "Express": <SiExpress className="w-6 h-6" />,
+      "Arduino IDE": <SiArduino className="w-6 h-6" />,
+      "Redux": <SiRedux className="w-6 h-6" />,
+      
+    };
+    return techIcons[techName] || null;
+  };
 
   return (
     <div
@@ -105,22 +124,23 @@ export default function ProjectPage() {
               </div>
             </div>
           )}
-          <div className="flex flex-wrap gap-2 py-6 flex flex-col">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="flex flex-wrap gap-2 py-6">
+            <h2 className="text-2xl font-semibold mb-4 w-full">
               Tecnologías utilizadas:
             </h2>
-            <div className="flex justify-start">
+            <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech, index) => (
-                <span
+                <div
                   key={index}
-                  className={`${
+                  className={`flex items-center gap-2 ${
                     theme === "dark"
-                      ? "bg-blue-900 text-blue-200"
-                      : "bg-blue-100 text-blue-800"
-                  } px-3 py-1 m-1 rounded-full text-sm flex items-center`}
+                      ? "bg-slate-700 text-slate-200"
+                      : "bg-gray-100 text-gray-800"
+                  } px-3 py-2 rounded-full`}
                 >
-                  {tech}
-                </span>
+                  {getTechIcon(tech)}
+                  <span className="text-sm">{tech}</span>
+                </div>
               ))}
             </div>
           </div>

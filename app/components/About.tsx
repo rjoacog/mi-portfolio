@@ -9,7 +9,15 @@ export function About({ theme }: { theme: "light" | "dark" }) {
       >
         Me gusta resolver problemas con código y aprender nuevas tecnologías.
         Disfruto trabajar tanto en frontend como backend, y tengo experiencia
-        creando soluciones reales desde cero.
+        creando soluciones reales desde cero. Actualmente trabajo como Frontend
+        Developer en un proyecto Web3 especializado en la gestión y minting de
+        NFTs. También lideré el desarrollo completo de un sistema de llamado de
+        enfermería, desde la fabricación de dispositivos físicos con placas
+        Arduino hasta la creación de la plataforma web de gestión en tiempo
+        real. Cuento además con formación en Ingeniería Industrial, lo que me
+        permite abordar los proyectos con una visión orientada a la eficiencia,
+        la optimización de procesos y la gestión estratégica de soluciones
+        tecnológicas
       </p>
     </section>
   );
